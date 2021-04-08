@@ -1,0 +1,98 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "scrollable-stack-overlay",
+      "path": "./src/cards/scrollable-stack-overlay/scrollable-stack-overlay.js",
+      "attributes": [
+        {
+          "name": "hass",
+          "type": "object",
+          "default": "{}"
+        }
+      ],
+      "properties": [
+        {
+          "name": "hass",
+          "attribute": "hass",
+          "type": "object",
+          "default": "{}"
+        }
+      ],
+      "events": [
+        {
+          "name": "scroll-stop"
+        }
+      ]
+    },
+    {
+      "name": "scrollable-stack-editor",
+      "path": "./src/cards/scrollable-stack/scrollable-stack-editor.js",
+      "properties": [
+        {
+          "name": "hass",
+          "type": "object",
+          "default": "{}"
+        },
+        {
+          "name": "lovelace",
+          "type": "object",
+          "default": "{}"
+        }
+      ]
+    },
+    {
+      "name": "scrollable-stack",
+      "path": "./src/cards/scrollable-stack/scrollable-stack.js",
+      "attributes": [
+        {
+          "name": "hass",
+          "type": "object",
+          "default": "{}"
+        }
+      ],
+      "properties": [
+        {
+          "name": "hass",
+          "attribute": "hass",
+          "type": "object",
+          "default": "{}"
+        }
+      ],
+      "events": [
+        {
+          "name": "scroll-stop"
+        }
+      ]
+    },
+    {
+      "name": "touch-sidebar",
+      "path": "./src/components/touch-sidebar/touch-sidebar.js",
+      "attributes": [
+        {
+          "name": "items",
+          "type": "array"
+        }
+      ],
+      "properties": [
+        {
+          "name": "items",
+          "attribute": "items",
+          "type": "array"
+        },
+        {
+          "name": "containerElem",
+          "type": "Element | null"
+        },
+        {
+          "name": "parentOffsetLeft"
+        },
+        {
+          "name": "isOpened",
+          "type": "object",
+          "default": "{}"
+        }
+      ]
+    }
+  ]
+}

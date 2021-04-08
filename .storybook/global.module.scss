@@ -1,0 +1,178 @@
+:root {
+  --error-state-color: var(--error-color);
+  --state-icon-unavailable-color: var(--disabled-text-color);
+  --sidebar-text-color: var(--secondary-text-color);
+  --sidebar-background-color: rgba(28,27,29,0.8);
+  --sidebar-selected-text-color: var(--primary-color);
+  --sidebar-selected-icon-color: var(--primary-color);
+  --sidebar-icon-color: rgba(var(--rgb-primary-text-color), 0.6);
+  --switch-checked-color: var(--primary-color);
+  --switch-checked-button-color: var(--switch-checked-color, var(--primary-background-color));
+  --switch-checked-track-color: var(--switch-checked-color, "#000000)");
+  --switch-unchecked-button-color: #ffffff;
+  --switch-unchecked-track-color: #39383C;
+  --slider-color: var(--primary-color);
+  --slider-secondary-color: var(--light-primary-color);
+  --slider-bar-color: var(--disabled-text-color);
+  --label-badge-grey: var(--paper-grey-500);
+  --label-badge-background-color:var(--card-background-color);
+  --label-badge-text-color:rgba(var(--rgb-primary-text-color), 0.8);
+  --paper-listbox-background-color:var(--card-background-color);
+  --paper-item-icon-color:var(--state-icon-color);
+  --paper-item-icon-active-color:var(--state-icon-active-color);
+  --table-row-background-color:var(--primary-background-color);
+  --table-row-alternative-background-color:var(--secondary-background-color);
+  --paper-slider-knob-color:var(--slider-color);
+  --paper-slider-knob-start-color:var(--slider-color);
+  --paper-slider-pin-color:var(--slider-color);
+  --paper-slider-pin-start-color:var(--slider-color);
+  --paper-slider-active-color:var(--slider-color);
+  --paper-slider-secondary-color:var(--slider-secondary-color);
+  --paper-slider-container-color:var(--slider-bar-color);
+  --data-table-background-color:var(--card-background-color);
+  --markdown-code-background-color:var(--primary-background-color);
+  --mdc-theme-primary:var(--primary-color);
+  --mdc-theme-secondary:var(--accent-color);
+  --mdc-theme-background:var(--primary-background-color);
+  --mdc-theme-surface:var(--card-background-color);
+  --mdc-theme-on-primary:var(--text-primary-color);
+  --mdc-theme-on-secondary:var(--text-primary-color);
+  --mdc-theme-on-surface:var(--primary-text-color);
+  --mdc-theme-text-primary-on-background:var(--primary-text-color);
+  --mdc-theme-text-secondary-on-background:var(--secondary-text-color);
+  --mdc-theme-text-icon-on-background:var(--secondary-text-color);
+  --app-header-text-color:#e1e1e1;
+  --app-header-background-color:rgba(0,0,0,0.4);
+  --material-body-text-color:var(--primary-text-color);
+  --material-background-color:var(--card-background-color);
+  --material-secondary-background-color:var(--secondary-background-color);
+  --material-secondary-text-color:var(--secondary-text-color);
+  --mdc-checkbox-unchecked-color:rgba(var(--rgb-primary-text-color), 0.54);
+  --mdc-checkbox-disabled-color:var(--disabled-text-color);
+  --mdc-radio-unchecked-color:rgba(var(--rgb-primary-text-color), 0.54);
+  --mdc-radio-disabled-color:var(--disabled-text-color);
+  --mdc-tab-text-label-color-default:var(--primary-text-color);
+  --mdc-button-disabled-ink-color:var(--disabled-text-color);
+  --mdc-button-outline-color:var(--divider-color);
+  --mdc-dialog-scroll-divider-color:var(--divider-color);
+  --primary-color:#0d84ff;
+  --rgb-primary-color:13,132,255;
+  --light-primary-color:#65d2ff;
+  --rgb-light-primary-color:101,210,255;
+  --accent-color:#ff9f0b;
+  --rgb-accent-color:255,159,11;
+  --state-icon-color:#888;
+  --rgb-state-icon-color:136,136,136;
+  --state-icon-active-color:var(--primary-color);
+  --app-header-selection-bar-color:transparent;
+  --primary-background-color:#000000;
+  --rgb-primary-background-color:17,17,17;
+  --card-background-color:#1c1b1d;
+  --secondary-background-color:#313034;
+  --rgb-secondary-background-color:32,32,32;
+  --primary-text-color:#ffffff;
+  --rgb-primary-text-color:225,225,225;
+  --secondary-text-color:#99989F;
+  --disabled-text-color:#6f6f6f;
+  --divider-color:#3a3a3d;
+  --rgb-divider-color:58,58,61;
+  --background-color:#000;
+  --rgb-background-color:0,0,0;
+  --rgb-switch-unchecked-button-color:153,153,153;
+  --rgb-switch-unchecked-track-color:155,155,155;
+  --rgb-app-header-text-color:225,225,225;
+  --rgb-app-header-background-color:16,30,36;
+  --rgb-card-background-color:28,28,28;
+  --rgb-secondary-text-color:155,155,155;
+  --rgb-disabled-text-color:111,111,111;
+  --mdc-ripple-color:#AAAAAA;
+  --rgb-mdc-ripple-color:170,170,170;
+  --codemirror-keyword:#C792EA;
+  --rgb-codemirror-keyword:199,146,234;
+  --codemirror-operator:#89DDFF;
+  --rgb-codemirror-operator:137,221,255;
+  --codemirror-variable:#f07178;
+  --rgb-codemirror-variable:240,113,120;
+  --codemirror-variable-2:#EEFFFF;
+  --rgb-codemirror-variable-2:238,255,255;
+  --codemirror-variable-3:#DECB6B;
+  --rgb-codemirror-variable-3:222,203,107;
+  --codemirror-builtin:#FFCB6B;
+  --rgb-codemirror-builtin:255,203,107;
+  --codemirror-atom:#F78C6C;
+  --rgb-codemirror-atom:247,140,108;
+  --codemirror-number:#FF5370;
+  --rgb-codemirror-number:255,83,112;
+  --codemirror-def:#82AAFF;
+  --rgb-codemirror-def:130,170,255;
+  --codemirror-string:#C3E88D;
+  --rgb-codemirror-string:195,232,141;
+  --codemirror-string-2:#f07178;
+  --rgb-codemirror-string-2:240,113,120;
+  --codemirror-comment:#545454;
+  --rgb-codemirror-comment:84,84,84;
+  --codemirror-tag:#FF5370;
+  --rgb-codemirror-tag:255,83,112;
+  --codemirror-meta:#FFCB6B;
+  --rgb-codemirror-meta:255,203,107;
+  --codemirror-attribute:#C792EA;
+  --rgb-codemirror-attribute:199,146,234;
+  --codemirror-property:#C792EA;
+  --rgb-codemirror-property:199,146,234;
+  --codemirror-qualifier:#DECB6B;
+  --rgb-codemirror-qualifier:222,203,107;
+  --codemirror-type:#DECB6B;
+  --rgb-codemirror-type:222,203,107;
+  --header-height:72px;
+  --ha-card-border-radius:16px;
+  --masonry-view-card-margin:8px 8px 16px;
+  --vertical-stack-card-margin:8px 0;
+  --grid-card-gap:16px;
+  --paper-tabs-selection-bar-color:var(--primary-background-color);
+  --paper-input-container-color:var(--divider-color);
+  --paper-progress-container-color:var(--divider-color);
+  background-color: rgb(0, 0, 0);
+}
+
+.sb-show-main .card {
+  background: var(--card-background-color);
+  border-radius: var(--ha-card-border-radius);
+  color: var(--primary-text-color);
+  padding: var(--grid-card-gap);
+  font-family: sans-serif;
+
+  p {
+    color: var(--secondary-text-color);
+  }
+}
+
+// Fix SB issue hiding absolute positioned elements of the demoed component
+.docs-story {
+  overflow: visible !important;
+
+  > div:first-child {
+    overflow: visible;
+    margin: 0 !important;
+  }
+}
+
+.sbdocs-preview {
+  overflow: visible !important;
+}
+
+// Fix SB issue adding scrollbar to demo toolbar
+.os-content {
+  a,
+  button {
+    box-sizing: border-box;
+  }
+}
+
+:not(pre) > code {
+  display: inline-block;
+  padding: 0 .5em;
+  font-size: .95em;
+  color: var(--color-font-base);
+  background-color: var(--color-secondary-base);
+  border-radius: 3px;
+}
