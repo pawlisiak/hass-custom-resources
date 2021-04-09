@@ -43,6 +43,11 @@ class TouchSidebar extends LitElement {
 
                   ${item.items.map(subitem => this.itemTemplate(subitem))}
                 </div>
+
+                <div
+                  @click="${this.handleDropdownOverlayClick}"
+                  class="overlay"
+                ></div>
               </div>
             `
             : this.itemTemplate(item)
@@ -137,24 +142,6 @@ class TouchSidebar extends LitElement {
         ]
       }
     ];
-
-    const editButton = querySelectorDeep('app-toolbar ha-button-menu mwc-list-item:not(:only-child)');
-
-    if (!!editButton) {
-      this.items[this.items.length - 1].items.push({
-        label: 'Edytuj dashboard',
-        icon: 'mdi:square-edit-outline',
-        callback: () => {
-          editButton.click();
-        }
-      });
-    }
-
-    this.items.forEach((item, index) => {
-      if (this.hasChildren(item)) {
-        this.items[index].isOpened = false;
-      }
-    });
   }
 
   disconnectedCallback () {
@@ -206,12 +193,18 @@ class TouchSidebar extends LitElement {
     return this.shadowRoot.querySelector('.container');
   }
 
+  handleDropdownOverlayClick (e) {
+    const dropdown = e.target.parentNode;
+    this.closeDropdown(dropdown);
+  }
+
   handleItemClick (e, item) {
     if (!item) {
       return;
     }
 
     const dropdown = e.composedPath().filter(node => (node.classList && node.classList.contains('dropdown')));
+    const dropdownSiblings = this.containerElem.querySelectorAll('.dropdown');
 
     if (dropdown.length > 0) {
       if (dropdown[0].classList.contains('is-opened')) {
@@ -224,30 +217,28 @@ class TouchSidebar extends LitElement {
       } else {
         e.preventDefault();
         this.openDropdown(dropdown[0]);
-
-        const items = this.containerElem.querySelectorAll('.dropdown');
-
-        items.forEach(item => {
-          if (item !== dropdown[0]) {
-            this.closeDropdown(item);
-          }
-        });
       }
     }
+
+    dropdownSiblings.forEach(item => {
+      if (item !== dropdown[0]) {
+        this.closeDropdown(item);
+      }
+    });
   }
 
   openDropdown (item) {
     const container = item.querySelector('.dropdown-container');
     
     item.classList.add('is-opened');
-    container.style.width = `${container.children.length * 48}px`;
+    container.style.setProperty('--active-dropdown-size', `${container.children.length * 48}px`);
   }
 
   closeDropdown (item) {
     const container = item.querySelector('.dropdown-container');
 
     item.classList.remove('is-opened');
-    container.style.removeProperty('width');
+    container.style.removeProperty('--active-dropdown-size');
   }
 
   dropdownIsOpened (item) {
