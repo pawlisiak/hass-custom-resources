@@ -1,39 +1,82 @@
 :host {
   position: fixed;
-  top: -120px;
-  left: 0;
-  bottom: -120px;
-  width: 72px;
   display: flex;
   align-items: center;
   align-content: center;
   background: black;
 
+  @media screen and (max-width: 639px) {
+    left: -120px;
+    right: -120px;
+    bottom: 0;
+    height: 96px;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 640px) {
+    top: -120px;
+    bottom: -120px;
+    left: 0;
+    width: 72px;
+  }
+
   &::before,
   &::after {
     content: '';
     position: fixed;
-    left: 72px;
-    width: 16px;
-    height: 32px;
+
+    @media screen and (max-width: 639px) {
+      bottom: 96px;
+      width: 32px;
+      height: 16px;
+    }
+
+    @media screen and (min-width: 640px) {
+      left: 72px;
+      width: 16px;
+      height: 32px;
+    }
   }
 
   &::before {
-    top: 0;
-    border-radius: 16px 0 0 0;
-    box-shadow: 0 -16px 0 black;
+    @media screen and (max-width: 639px) {
+      left: 0;
+      border-radius: 0 0 0 16px;
+      box-shadow: -16px 0 0 black;
+    }
+
+    @media screen and (min-width: 640px) {
+      top: 0;
+      border-radius: 16px 0 0 0;
+      box-shadow: 0 -16px 0 black;
+    }
   }
 
   &::after {
-    bottom: 0;
-    border-radius: 0 0 0 16px;
-    box-shadow: 0 16px 0 black;
+    @media screen and (max-width: 639px) {
+      right: 0;
+      border-radius: 0 0 16px 0;
+      box-shadow: 16px 0 0 black;
+    }
+
+    @media screen and (min-width: 640px) {
+      bottom: 0;
+      border-radius: 0 0 0 16px;
+      box-shadow: 0 16px 0 black;
+    }
   }
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+
+  @media screen and (max-width: 639px) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 640px) {
+    flex-direction: column;
+  }
 
   a {
     position: relative;
@@ -43,9 +86,16 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    margin: 12px;
     color: rgba(255,255,255,.4);
     transition: color .2s ease-in-out;
+
+    @media screen and (max-width: 639px) {
+      margin: 8px 4px;
+    }
+
+    @media screen and (min-width: 640px) {
+      margin: 12px;
+    }
 
     &::before {
       content: '';
@@ -80,16 +130,31 @@
     position: relative;
     width: 56px;
     height: 56px;
-    margin: 8px;
+
+    @media screen and (max-width: 639px) {
+      margin: 4px 0;
+    }
+
+    @media screen and (min-width: 640px) {
+      margin: 8px;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
 
     .dropdown-container {
       position: absolute;
       left: 0;
-      top: 0;
+      z-index: +1;
       display: flex;
       align-content: center;
       align-items: center;
-      width: 56px;
       padding: 4px;
       overflow: hidden;
       border-radius: 28px;
@@ -97,24 +162,60 @@
       -webkit-backdrop-filter: blur(20px);
       transition: .3s ease-in-out;
 
+      @media screen and (max-width: 639px) {
+        bottom: 0;
+        flex-direction: column-reverse;
+        height: 48px;
+      }
+
+      @media screen and (min-width: 640px) {
+        top: 0;
+        width: 56px;
+      }
+
       > a {
         flex-grow: 0;
         flex-shrink: 0;
         margin: 0;
 
         &:first-child {
-          margin-left: var(--default-negative-margin);
           transition: margin .3s ease-in-out;
+
+          @media screen and (max-width: 639px) {
+            margin-bottom: var(--default-negative-margin);
+          }
+
+          @media screen and (min-width: 640px) {
+            margin-left: var(--default-negative-margin);
+          }
         }
       }
     }
 
     &.is-opened {
+      .overlay {
+        display: block;
+      }
+
       .dropdown-container {
         background-color: var(--card-background-color);
 
+        @media screen and (max-width: 639px) {
+          height: var(--active-dropdown-size);
+        }
+
+        @media screen and (min-width: 640px) {
+          width: var(--active-dropdown-size);
+        }
+
         > a:first-child {
-          margin-left: 0;
+          @media screen and (max-width: 639px) {
+            margin-bottom: 0;
+          }
+
+          @media screen and (min-width: 640px) {
+            margin-left: 0;
+          }
         }
       }
     }

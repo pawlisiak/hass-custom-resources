@@ -2,19 +2,28 @@
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+
+  @media screen and (min-width: 640px) {
+    height: 100%;
+    overflow: hidden;
+  }
 
   --app-drawer-width: 72px;
 }
 
 .container {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
+  @media screen and (min-width: 640px) {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+  }
+
+  @media screen and (max-width: 899px) {
+    padding: 0 calc(var(--ha-card-border-radius) / 2);
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -25,11 +34,21 @@
   flex-grow: 1;
   flex-shrink: 0;
   box-sizing: border-box;
-  width: calc((100vw - var(--app-drawer-width)) / 3);
-  max-height: 100%;
   overflow-y: auto;
   padding: var(--masonry-view-card-margin);
   transition: opacity .5s ease-in-out;
+
+  @media screen and (min-width: 640px) {
+    max-height: 100%;
+
+    @media screen and (max-width: 899px) {
+      width: calc((100vw - var(--ha-card-border-radius) - var(--app-drawer-width)) / 2);
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    width: calc((100vw - var(--app-drawer-width)) / 3);
+  }
 
   &.shady {
     opacity: .4;
@@ -39,14 +58,23 @@
 .shadow,
 .column-0,
 .column-x {
-  width: calc((100vw - var(--app-drawer-width)) / 6);
+  @media screen and (max-width: 899px) {
+    width: 0;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: calc((100vw - var(--app-drawer-width)) / 6);
+  }
 }
 
 .column-0,
 .column-x {
-  height: 10px;
   flex-grow: 1;
   flex-shrink: 0;
+
+  @media screen and (min-width: 900px) {
+    height: 10px;
+  }
 }
 
 .shadow {
@@ -57,11 +85,17 @@
 
   &__left {
     left: 0;
-    background-image: linear-gradient(90deg, var(--primary-background-color) 20%, transparent 100%);
+
+    @media screen and (min-width: 900px) {
+      background-image: linear-gradient(90deg, var(--primary-background-color) 20%, transparent 100%);
+    }
   }
 
   &__right {
     right: 0;
-    background-image: linear-gradient(90deg, transparent 0%, var(--primary-background-color) 80%);
+
+    @media screen and (min-width: 900px) {
+      background-image: linear-gradient(90deg, transparent 0%, var(--primary-background-color) 80%);
+    }
   }
 }
